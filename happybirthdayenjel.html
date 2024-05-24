@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fce4ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .input-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 400px;
+            text-align: center;
+        }
+        .input-container input {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ff4081;
+            border-radius: 5px;
+            width: calc(100% - 24px);
+            font-size: 16px;
+        }
+        .input-container button {
+            padding: 10px 20px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .input-container button:hover {
+            background-color: #e91e63;
+        }
+        .card {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            display: none;
+        }
+        .card h1 {
+            color: #ff4081;
+            margin-bottom: 20px;
+        }
+        .card p {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .heart {
+            color: #ff4081;
+            font-size: 100px;
+            margin: 0 auto;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0%, 20%, 40%, 60%, 80%, 100% {
+                transform: scale(1);
+            }
+            10%, 30%, 50%, 70%, 90% {
+                transform: scale(1.1);
+            }
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-container" id="input-container">
+            <h1>Masukkan Nama Anda</h1>
+            <input type="text" id="nameInput" placeholder="Nama Anda">
+            <button onclick="showCard()">Lihat Kartu Ucapan</button>
+        </div>
+        <div class="card" id="card">
+            <div class="heart">❤️</div>
+            <h1 id="greeting">Selamat Ulang Tahun, Sayang!</h1>
+            <p>Hari ini adalah hari yang istimewa karena hari ini adalah hari ulang tahunmu. Semoga semua kebahagiaan, cinta, dan keberuntungan selalu menyertaimu.</p>
+            <p>Aku sangat beruntung bisa berbagi hidup denganmu. Selamat ulang tahun, cinta!</p>
+            <p class="footer">Dengan segala cinta,</p>
+            <p class="footer" id="fromName"></p>
+        </div>
+    </div>
+    <script>
+        function showCard() {
+            const name = document.getElementById('nameInput').value;
+            if (name.trim() !== "") {
+                document.getElementById('greeting').innerText = `Selamat Ulang Tahun, ${name}!`;
+                document.getElementById('fromName').innerText = name;
+                document.getElementById('input-container').style.display = 'none';
+                document.getElementById('card').style.display = 'block';
+            } else {
+                alert("Silakan masukkan nama Anda.");
+            }
+        }
+    </script>
+</body>
+</html>
